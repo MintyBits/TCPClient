@@ -2,7 +2,9 @@
 
 #define _WINSOCK_DEPRECATED_NO_WARNINGS
 
-#include "includes.h"
+#include <winsock2.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 enum TCPConnectionErrors {
 	S_SUCESS = 0,
