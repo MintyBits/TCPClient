@@ -1,3 +1,5 @@
 # TCPClient
 
-This is a simple TCP Client Class for C++, Easy to use just drag and drop the file and perhaps read the example.cpp file.
+This is a simple Winsock TCP Client Class for C++.
+Read the example if you must, to use just drag and drop.
+
