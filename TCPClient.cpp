@@ -20,30 +20,30 @@ int TCPClient::Connect()
 	WSADATA wsa;
 
 	if (WSAStartup(MAKEWORD(2, 2), &wsa) != 0)
-		return TCPConnectionErrors::E_WSOCK_STARTUP;
+		return -1;
 
 	// Create the Socket
 	this->Conn = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if (this->Conn == INVALID_SOCKET)
-		return TCPConnectionErrors::E_SOCK_CREATE;
+		return -2;
 
 	// Connect
 	if (connect(this->Conn, (struct sockaddr*)&this->ConnInformation, sizeof(this->ConnInformation)) < 0)
-		return TCPConnectionErrors::E_SOCK_CONNECT;
+		return -3;
 
-	return TCPConnectionErrors::S_SUCESS;
+	return 0;
 }
 
 int TCPClient::Read(char* buffer, int len)
 {
 	if (recv(this->Conn, buffer, len, 0) < 0)
-		return TCPConnectionErrors::E_SOCK_WRITE;
-	return TCPConnectionErrors::S_SUCESS;
+		return -4;
+	return 0;
 }
 
 int TCPClient::Write(char* buffer, int len)
 {
 	if (send(this->Conn, buffer, len, 0) < 0)
-		return TCPConnectionErrors::E_SOCK_WRITE;
-	return TCPConnectionErrors::S_SUCESS;
+		return -5;
+	return 0;
 }
