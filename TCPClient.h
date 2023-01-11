@@ -6,17 +6,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-enum TCPConnectionErrors {
-	S_SUCESS = 0,
-
-	E_WSOCK_CREATE = -1,
-	E_SOCK_CREATE = -2,
-	E_SOCK_CONNECT = -3,
-	E_SOCK_WRITE = -4,
-	E_SOCK_READ = -5,
-	E_WSOCK_STARTUP = -6,
-};
-
 class TCPClient {
 private:
 	SOCKET Conn;
